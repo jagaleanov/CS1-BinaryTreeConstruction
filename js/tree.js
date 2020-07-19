@@ -56,7 +56,7 @@ class Tree {
                     //alert("El nodo cabeza con valor " + valueParent + " no existe");
                 }
             }
-        }
+    }
     }
 
     findNode(head, value) {//Recorre en preorden
@@ -76,14 +76,14 @@ class Tree {
         }
     }
 
-    toHTML(head,color) {
+    toHTML(head, color) {
 
         if (head === null) {
             return '<li><div class="px-1">*</div></li>';
         } else {
 
-            var htmlLeft = this.toHTML(head.left,color);
-            var htmlRight = this.toHTML(head.right,color);
+            var htmlLeft = this.toHTML(head.left, color);
+            var htmlRight = this.toHTML(head.right, color);
 
 
             return '<li>' +
@@ -100,8 +100,8 @@ class Tree {
                     '<td class="bg-primary px-2">' + head.leftString2 + '</td>' +
                     '</tr>' +
                     '<tr>' +
-                    '<td class="bg-'+color+' px-2">' + head.rightString1 + '</td>' +
-                    '<td class="bg-'+color+' px-2">' + head.rightString2 + '</td>' +
+                    '<td class="bg-' + color + ' px-2">' + head.rightString1 + '</td>' +
+                    '<td class="bg-' + color + ' px-2">' + head.rightString2 + '</td>' +
                     '</tr>' +
                     '</tbody>' +
                     '</table>' +
@@ -147,7 +147,7 @@ class Tree {
                 //alert("error");
                 return null;
             }
-        }
+    }
     }
 
     setTreePreOrder(strInOrder, strPreOrder, parent = null, direction = null) {
@@ -183,7 +183,7 @@ class Tree {
                 //alert("error");
                 return null;
             }
-        }
+    }
 
     }
 }
@@ -194,23 +194,31 @@ var tree = new Tree();
 
 function submitForm() {
     tree.error = false;
-    $("#inOrderSpan").html();
-    $("#preOrderSpan").html();
-    $("#postOrderSpan").html();
+    $("#test").html("");
+    $("#inOrderSpan").html("");
+    $("#preOrderSpan").html("");
+    $("#postOrderSpan").html("");
 
     if ($("#postOrderSel").is(':checked')) {
-        tree.setTreePostOrder($("#inOrderTxt").val(), $("#postOrderTxt").val());
-        var color = "danger";
+        if ($("#inOrderTxt").val().length === $("#postOrderTxt").val().length) {
+            tree.setTreePostOrder($("#inOrderTxt").val(), $("#postOrderTxt").val());
+            var color = "danger";
+        } else {
+            tree.error = true;
+        }
     } else {
-        tree.setTreePreOrder($("#inOrderTxt").val(), $("#preOrderTxt").val());
-        var color = "success";
+        if ($("#inOrderTxt").val().length === $("#preOrderTxt").val().length) {
+            tree.setTreePreOrder($("#inOrderTxt").val(), $("#preOrderTxt").val());
+            var color = "success";
+        } else {
+            tree.error = true;
+        }
     }
 
     if (tree.error) {
-        alert("Error en los datos, por favor revise.");
+        alert("Los datos de los recorridos estan errados.");
     } else {
-        $("#test").html(tree.toHTML(tree.head,color));
-
+        $("#test").html(tree.toHTML(tree.head, color));
         $("#inOrderSpan").html($("#inOrderTxt").val());
         $("#preOrderSpan").html($("#preOrderTxt").val());
         $("#postOrderSpan").html($("#postOrderTxt").val());
