@@ -78,14 +78,14 @@ class Tree {
         }
     }
 
-    toHTML(head) {
+    toHTML(head,color) {
 
         if (head === null) {
             return '<li><div class="px-1">*</div></li>';
         } else {
 
-            var htmlLeft = this.toHTML(head.left);
-            var htmlRight = this.toHTML(head.right);
+            var htmlLeft = this.toHTML(head.left,color);
+            var htmlRight = this.toHTML(head.right,color);
 
 
             return '<li>' +
@@ -102,8 +102,8 @@ class Tree {
                     '<td class="bg-primary px-2">' + head.leftString2 + '</td>' +
                     '</tr>' +
                     '<tr>' +
-                    '<td class="bg-danger px-2">' + head.rightString1 + '</td>' +
-                    '<td class="bg-danger px-2">' + head.rightString2 + '</td>' +
+                    '<td class="bg-'+color+' px-2">' + head.rightString1 + '</td>' +
+                    '<td class="bg-'+color+' px-2">' + head.rightString2 + '</td>' +
                     '</tr>' +
                     '</tbody>' +
                     '</table>' +
@@ -204,14 +204,16 @@ function submitForm() {
 
     if ($("#postOrderSel").is(':checked')) {
         tree.setTreePostOrder($("#inOrderTxt").val(), $("#postOrderTxt").val());
+        var color = "danger";
     } else {
         tree.setTreePreOrder($("#inOrderTxt").val(), $("#preOrderTxt").val());
+        var color = "success";
     }
 
     if (tree.error) {
         alert("Error en los datos, por favor revise.");
     } else {
-        $("#test").html(tree.toHTML(tree.head));
+        $("#test").html(tree.toHTML(tree.head,color));
 
         $("#inOrderSpan").html($("#inOrderTxt").val());
         $("#preOrderSpan").html($("#preOrderTxt").val());
