@@ -30,7 +30,7 @@ body{
     text-align: center;
     list-style-type: none;
     position: relative;
-    padding: 20px 5px 0 5px;
+    padding: 20px 3px 0 3px;/**/
 }
 
 .tree li::before, .tree li::after{
@@ -38,7 +38,7 @@ body{
     position: absolute; 
     top: 0; 
     right: 50%;
-    border-top: 1px solid #000;
+    border-top: 1px solid #000;/**/
     width: 50%; 
     height: 20px;
     white-space: nowrap;
@@ -54,7 +54,9 @@ body{
     display: none;
 }
 
-.tree li:only-child{ padding-top: 0;}
+.tree li:only-child{
+    padding-top: 0;
+}
 
 .tree li:first-child::before, .tree li:last-child::after{
     border: 0 none;
@@ -71,11 +73,11 @@ body{
 .tree ul ul::before{
     content: '';
     position: absolute; 
-    top: 0; 
+    top: -6px; 
     left: 50%;
     border-left: 1px solid #000;
     width: 0; 
-    height: 20px;
+    height: 26px;
 }
 
 .tree li div{
