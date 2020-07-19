@@ -169,9 +169,6 @@ class Tree {
         }
     }
 }
-var tree = new Tree();
-
-//console.log(tree.head);
 
 function submitForm() {
     tree.error = false;
@@ -208,17 +205,19 @@ function submitForm() {
 
 function showInput() {
     if ($("#postOrderSel").is(':checked')) {
-        $("#postOrderDiv").show(500);
-        $("#postOrderTitle").show();
         $("#preOrderDiv").hide();
-        $("#preOrderTitle").hide();
+        $("#postOrderDiv").show(500);
+        $("#preOrderTitle").hide(500);
+        $("#postOrderTitle").show(500);
     } else {
-        $("#preOrderDiv").show(500);
-        $("#preOrderTitle").show();
         $("#postOrderDiv").hide();
-        $("#postOrderTitle").hide();
+        $("#preOrderDiv").show(500);
+        $("#postOrderTitle").hide(500);
+        $("#preOrderTitle").show(500);
     }
 }
+
+var tree = new Tree();
 
 $(document).ready(function () {
     showInput();
