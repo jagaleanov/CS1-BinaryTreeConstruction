@@ -206,16 +206,6 @@ function submitForm() {
     }
 }
 
-$(document).ready(function () {
-    showInput();
-    $("#preOrderSel").click(function () {
-        showInput();
-    });
-    $("#postOrderSel").click(function () {
-        showInput();
-    });
-});
-
 function showInput() {
     if ($("#postOrderSel").is(':checked')) {
         $("#postOrderDiv").show(500);
@@ -229,4 +219,14 @@ function showInput() {
         $("#postOrderTitle").hide();
     }
 }
+
+$(document).ready(function () {
+    showInput();
+    $("#preOrderSel").click(function () {
+        showInput();
+    });
+    $("#postOrderSel").click(function () {
+        showInput();
+    });
+});
  
