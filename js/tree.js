@@ -1,11 +1,8 @@
 
 class Node {
-
     value;
-
     left;
     right;
-
     leftString1;
     leftString2;
     rightString1;
@@ -17,7 +14,6 @@ class Node {
         this.rightString1 = rightString1;
         this.leftString2 = leftString2;
         this.rightString2 = rightString2;
-
         this.left = null;
         this.right = null;
     }
@@ -38,7 +34,6 @@ class Tree {
         if (valueParent === null) {
             this.head = new Node(value, leftString1, leftString2, rightString1, rightString2);
         } else {
-
             if (this.findNode(this.head, value) !== null) {
                 this.error = true;
                 //this.head = null;
@@ -56,7 +51,7 @@ class Tree {
                     //alert("El nodo cabeza con valor " + valueParent + " no existe");
                 }
             }
-    }
+        }
     }
 
     findNode(head, value) {//Recorre en preorden
@@ -77,14 +72,11 @@ class Tree {
     }
 
     toHTML(head, color) {
-
         if (head === null) {
             return '<li><div class="px-1">*</div></li>';
         } else {
-
             var htmlLeft = this.toHTML(head.left, color);
             var htmlRight = this.toHTML(head.right, color);
-
 
             return '<li>' +
                     '<div>' +
@@ -118,21 +110,16 @@ class Tree {
         if (strInOrder.length === 0 && strPostOrder.length === 0) {
             return null;
         } else {
-
             var rootChar = strPostOrder.charAt(strPostOrder.length - 1);
             //alert(rootChar);
-
             var rootPos = strInOrder.indexOf(rootChar);
 
             if (rootPos !== -1) {
-
                 var strLeftIn = strInOrder.substr(0, rootPos);
                 var strRightIn = strInOrder.substr(rootPos + 1);
-
                 var strLeftPos = strPostOrder.substr(0, strLeftIn.length);
                 var strRightPos = strPostOrder.substr(strLeftIn.length, strRightIn.length);
                 //console.log("root=" + rootChar + " strLeftIn= " + strLeftIn + " strRightIn= " + strRightIn + " strLeftPos= " + strLeftPos + " strRightPos= " + strRightPos);
-
                 if (this.contador === 0)
                 {
                     this.insertNode(rootChar, strLeftIn, strRightIn, strLeftPos, strRightPos, null, null);
@@ -147,24 +134,20 @@ class Tree {
                 //alert("error");
                 return null;
             }
-    }
+        }
     }
 
     setTreePreOrder(strInOrder, strPreOrder, parent = null, direction = null) {
         if (strInOrder.length === 0 && strPreOrder.length === 0) {
             return null;
         } else {
-
             var rootChar = strPreOrder.charAt(0);
             //alert(rootChar);
-
             var rootPos = strInOrder.indexOf(rootChar);
 
             if (rootPos !== -1) {
-
                 var strLeftIn = strInOrder.substr(0, rootPos);
                 var strRightIn = strInOrder.substr(rootPos + 1);
-
                 var strLeftPre = strPreOrder.substr(1, strLeftIn.length);
                 var strRightPre = strPreOrder.substr(strLeftIn.length + 1, strRightIn.length);
                 //console.log("root=" + rootChar + " strLeftIn= " + strLeftIn + " strRightIn= " + strRightIn + " strLeftPos= " + strLeftPre + " strRightPos= " + strRightPre);
@@ -183,11 +166,9 @@ class Tree {
                 //alert("error");
                 return null;
             }
-    }
-
+        }
     }
 }
-
 var tree = new Tree();
 
 //console.log(tree.head);
