@@ -56,9 +56,7 @@ class Tree {
                     //alert("El nodo cabeza con valor " + valueParent + " no existe");
                 }
             }
-
-
-    }
+        }
     }
 
     findNode(head, value) {//Recorre en preorden
@@ -113,8 +111,6 @@ class Tree {
                     htmlRight +
                     '</ul>' +
                     '</li>';
-
-
         }
     }
 
@@ -151,7 +147,7 @@ class Tree {
                 //alert("error");
                 return null;
             }
-    }
+        }
     }
 
     setTreePreOrder(strInOrder, strPreOrder, parent = null, direction = null) {
@@ -187,7 +183,7 @@ class Tree {
                 //alert("error");
                 return null;
             }
-    }
+        }
 
     }
 }
