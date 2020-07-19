@@ -2,22 +2,22 @@
 body{
     background:#888888;
 }
-.table-bordered td{
-    border: 1px solid #000;
-    font-weight: bold;
-}
-.table{
-    margin:0;
-}
 .tree{
     white-space: nowrap;
     width: 1500px;
+    font-weight: bold;
 }
 
 .tree ul, .tree li {
     margin: 0; 
     padding: 0;
     white-space: nowrap;
+}
+.tree table{
+    margin:0;
+}
+.tree table td{
+    border: 1px solid #000;
 }
 
 .tree ul {
