@@ -200,18 +200,24 @@ function submitForm() {
         $("#inOrderSpan").html($("#inOrderTxt").val());
         $("#preOrderSpan").html($("#preOrderTxt").val());
         $("#postOrderSpan").html($("#postOrderTxt").val());
+        
+        $("#inOrderTxt").val("");
+        $("#preOrderTxt").val("");
+        $("#postOrderTxt").val("");
     }
 }
 
 function showInput() {
     if ($("#postOrderSel").is(':checked')) {
         $("#preOrderDiv").hide();
-        $("#postOrderDiv").show(500);
+        $("#preOrderTxt").val("");
+        $("#postOrderDiv").show();
         $("#preOrderTitle").hide(500);
         $("#postOrderTitle").show(500);
     } else {
         $("#postOrderDiv").hide();
-        $("#preOrderDiv").show(500);
+        $("#postOrderTxt").val("");
+        $("#preOrderDiv").show();
         $("#postOrderTitle").hide(500);
         $("#preOrderTitle").show(500);
     }
