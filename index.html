@@ -18,46 +18,49 @@
             </nav>
             <div class="card mx-4">
                 <div class="card-body">
-                    <h5 class="card-title">Entrada de datos</h5>
-
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="orderSel" id="preOrderSel" value="pre" checked>
-                        <label class="form-check-label" for="preOrderSel">
-                            Inorden / Preorden
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="orderSel" id="postOrderSel" value="post">
-                        <label class="form-check-label" for="postOrderSel">
-                            Inorden / Postorden
-                        </label>
-                    </div>
-
-                    <hr>
 
                     <div class="row">
-                        <div class="form-group col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                            <label for="preOrderTxt" class="text-primary">Inorden</label>
-                            <input type="text" name="preOrderTxt" id="inOrderTxt" class="form-control" value="" autocomplete="off"  required>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                            <h5 class="card-title">Entrada de datos</h5>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="orderSel" id="preOrderSel" value="pre" checked>
+                                <label class="form-check-label" for="preOrderSel">
+                                    Inorden / Preorden
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="orderSel" id="postOrderSel" value="post">
+                                <label class="form-check-label" for="postOrderSel">
+                                    Inorden / Postorden
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label for="preOrderTxt" class="text-primary">Inorden</label>
+                                <input type="text" name="preOrderTxt" id="inOrderTxt" class="form-control" value="" autocomplete="off"  required>
+                            </div>
+                            <div id="preOrderDiv" class="form-group">
+                                <label for="preOrderTxt" class="text-success">Preorden</label>
+                                <input type="text" name="preOrderTxt" id="preOrderTxt" class="form-control" value="" autocomplete="off"  required>
+                            </div>
+                            <div id="postOrderDiv" class="form-group">
+                                <label for="postOrderTxt" class="text-danger">Postorden</label>
+                                <input type="text" name="postOrderTxt" id="postOrderTxt" class="form-control" value="" autocomplete="off" required>
+                            </div>
+                            <input type="button" id="submitTree" class="btn btn-secondary btn-block" value="Generar" onclick="submitForm();">
                         </div>
-                        <div id="preOrderDiv" class="form-group col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                            <label for="preOrderTxt" class="text-success">Preorden</label>
-                            <input type="text" name="preOrderTxt" id="preOrderTxt" class="form-control" value="" autocomplete="off"  required>
-                        </div>
-                        <div id="postOrderDiv" class="form-group col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
-                            <label for="postOrderTxt" class="text-danger">Postorden</label>
-                            <input type="text" name="postOrderTxt" id="postOrderTxt" class="form-control" value="" autocomplete="off" required>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                            <h5 class="card-title">Recorridos</h5>
+                            <h6 class="card-title text-primary">Inorden: <span id="inOrderSpan"></span></h6>
+                            <h6 id="preOrderTitle" class="card-title text-success">Preorden: <span id="preOrderSpan"></span></h6>
+                            <h6 id="postOrderTitle" class="card-title text-danger">Postorden: <span id="postOrderSpan"></span></h6>
                         </div>
                     </div>
-                    <input type="button" id="submitTree" class="btn btn-secondary btn-block" value="Generar" onclick="submitForm();">
                 </div>
             </div>
             <div class="card mx-4 mt-4">
                 <div class="card-body ">
                     <h5 class="card-title">Árbol generado</h5>
-                    <h6 class="card-title text-primary">Inorden: <span id="inOrderSpan"></span></h6>
-                    <h6 id="preOrderTitle" class="card-title text-success">Preorden: <span id="preOrderSpan"></span></h6>
-                    <h6 id="postOrderTitle" class="card-title text-danger">Postorden: <span id="postOrderSpan"></span></h6>
                     <div class="tree">
                         <ul id="test"></ul>
                     </div>
